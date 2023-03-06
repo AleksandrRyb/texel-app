@@ -17,7 +17,8 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "@hoc/*": ["hoc/*"]
+      "@hoc/*": ["hoc/*"],
+      "@components/*": ["components/*"]
     }
   },
   "include": ["src", "test-utils"],

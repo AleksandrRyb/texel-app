@@ -9,6 +9,9 @@ export default defineConfig({
     port: 3000,
   },
   resolve: {
-    alias: [{ find: '@hoc', replacement: 'src/hoc' }],
+    alias: [
+      { find: '@hoc', replacement: 'src/hoc' },
+      { find: '@components', replacement: 'src/components' },
+    ],
   },
 });
