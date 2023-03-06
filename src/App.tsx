@@ -4,14 +4,12 @@ import './App.css';
 import { ThemeProvider } from '@hoc/theme-provider';
 import Welcome from '@components/welcome/welcome';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App: React.FC = () => {
   return (
     <ThemeProvider>
       <Welcome />
     </ThemeProvider>
   );
-}
+};
 
 export default App;
