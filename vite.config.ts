@@ -14,6 +14,7 @@ export default defineConfig({
       { find: '@components', replacement: 'src/components' },
       { find: '@store', replacement: 'src/store' },
       { find: '@hooks', replacement: 'src/hooks' },
+      { find: '@pages, reload', replacement: 'src/pages' },
     ],
   },
 });

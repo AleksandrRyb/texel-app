@@ -20,7 +20,8 @@
       "@hoc/*": ["hoc/*"],
       "@components/*": ["components/*"],
       "@store/*": ["store/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@pages/*": ["pages/*"]
     }
   },
   "include": ["src", "test-utils"],
