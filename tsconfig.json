@@ -18,7 +18,9 @@
     "baseUrl": "src",
     "paths": {
       "@hoc/*": ["hoc/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@store/*": ["store/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": ["src", "test-utils"],
