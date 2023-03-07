@@ -21,7 +21,9 @@
       "@components/*": ["components/*"],
       "@store/*": ["store/*"],
       "@hooks/*": ["hooks/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@services/*": ["services/*"],
+      "@models/*": ["models/*"]
     }
   },
   "include": ["src", "test-utils"],
