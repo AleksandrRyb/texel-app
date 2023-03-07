@@ -1,5 +1,5 @@
 import { FC } from 'react';
 
-const FormPage = () => {};
+const FormPage: FC = () => {};
 
 export default FormPage;
