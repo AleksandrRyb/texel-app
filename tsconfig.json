@@ -19,6 +19,7 @@
     "paths": {
       "@hoc/*": ["hoc/*"],
       "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
       "@store/*": ["store/*"],
       "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],

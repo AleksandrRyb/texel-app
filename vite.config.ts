@@ -12,6 +12,7 @@ export default defineConfig({
     alias: [
       { find: '@hoc', replacement: 'src/hoc' },
       { find: '@components', replacement: 'src/components' },
+      { find: '@constants', replacement: 'src/constants' },
       { find: '@store', replacement: 'src/store' },
       { find: '@hooks', replacement: 'src/hooks' },
       {
