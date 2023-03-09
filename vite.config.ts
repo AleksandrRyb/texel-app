@@ -14,7 +14,13 @@ export default defineConfig({
       { find: '@components', replacement: 'src/components' },
       { find: '@store', replacement: 'src/store' },
       { find: '@hooks', replacement: 'src/hooks' },
-      { find: '@pages', replacement: 'src/pages' },
+      {
+        find: '@pages',
+        replacement: 'src/pages',
+        customResolver: (source, importer, options) => {
+          return source + '/index.ts/';
+        },
+      },
       { find: '@services', replacement: 'src/services' },
       { find: '@models', replacement: 'src/models' },
     ],
