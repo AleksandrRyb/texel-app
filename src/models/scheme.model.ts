@@ -3,7 +3,7 @@ export interface IScheme {
   title: string;
   description: string;
   parameters: {
-    input: InputParametr[] | {};
+    input: InputParametr[];
     output?: OutputParametr[];
   };
   commands: Commands;
