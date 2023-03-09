@@ -1,13 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import schemeReducer from '@store/scheme/scheme.slice';
+import { schemeApi } from '@services/scheme.api';
 
 const rootReducer = combineReducers({
-  schemeReducer,
+  [schemeApi.reducerPath]: schemeApi.reducer,
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(schemeApi.middleware),
   });
 };
 

@@ -1,11 +1,14 @@
-import { FC } from 'react';
-import { useAppSelector } from '@hooks/redux';
-import { connect } from 'react-redux';
+import { FC, useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { getConfigAction } from '@store/scheme/scheme.actions-creators';
+import { schemeApi } from '@services/scheme.api';
 
 const FormPage: FC = () => {
-  //   const { error, isLoading, config } = useAppSelector((state) => state.schemeReducer);
+  const { data: config, error, isLoading } = schemeApi.useGetConfigQuery({});
 
-  return <div>Hello World</div>;
+  console.log(isLoading);
+
+  return <div style={{ color: 'red' }}>{JSON.stringify(config)}</div>;
 };
 
 export default FormPage;
