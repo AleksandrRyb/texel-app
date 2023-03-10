@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Title, Container, Text, Flex } from '@mantine/core';
+import { Title, Container, Text, Flex, Button, Tooltip } from '@mantine/core';
 import { useForm } from 'react-hook-form';
+import { IconArrowRight } from '@tabler/icons-react';
 import { schemeApi } from '@services/scheme.api';
 
 import DinamicInput from '@components/dinamic-input';
@@ -27,12 +28,18 @@ const FormPage: React.FC = () => {
         {config?.description}
       </Text>
 
-      <CustomFlex align="center" justify="center">
+      <CustomFlex direction="column" align="center" justify="center">
         <form style={{ width: '60%' }}>
           {config?.parameters.input.map((input) => (
             <DinamicInput key={input.title} input={input} />
           ))}
         </form>
+
+        <Button.Group>
+          <Tooltip label="Some">
+            <Button rightIcon={<IconArrowRight size="15px" />}>Запустить</Button>
+          </Tooltip>
+        </Button.Group>
       </CustomFlex>
     </Container>
   );
