@@ -18,7 +18,13 @@
     "baseUrl": "src",
     "paths": {
       "@hoc/*": ["hoc/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
+      "@store/*": ["store/*"],
+      "@hooks/*": ["hooks/*"],
+      "@pages/*": ["pages/*"],
+      "@services/*": ["services/*"],
+      "@models/*": ["models/*"]
     }
   },
   "include": ["src", "test-utils"],
