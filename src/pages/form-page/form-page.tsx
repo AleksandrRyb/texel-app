@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Title, Container, Text, Flex, Button, Tooltip } from '@mantine/core';
+import { Title, Container, Text, Flex, Button, Tooltip, Loader } from '@mantine/core';
 import { useForm } from 'react-hook-form';
 import { IconArrowRight } from '@tabler/icons-react';
 import { schemeApi } from '@services/scheme.api';
@@ -18,29 +18,35 @@ const FormPage: React.FC = () => {
 
   return (
     <Container>
-      <Title mb="10px" order={1}>
-        {config?.name}
-      </Title>
-      <Title mb="15px" order={3}>
-        {config?.title}
-      </Title>
-      <Text mb="30px" fz="md">
-        {config?.description}
-      </Text>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Title mb="10px" order={1}>
+            {config?.name}
+          </Title>
+          <Title mb="15px" order={3}>
+            {config?.title}
+          </Title>
+          <Text mb="30px" fz="md">
+            {config?.description}
+          </Text>
 
-      <CustomFlex direction="column" align="center" justify="center">
-        <form style={{ width: '60%' }}>
-          {config?.parameters.input.map((input) => (
-            <DinamicInput key={input.title} input={input} />
-          ))}
-        </form>
+          <CustomFlex direction="column" align="center" justify="center">
+            <form style={{ width: '60%' }}>
+              {config?.parameters.input.map((input) => (
+                <DinamicInput key={input.title} input={input} />
+              ))}
+            </form>
 
-        <Button.Group>
-          <Tooltip label="Some">
-            <Button rightIcon={<IconArrowRight size="15px" />}>Запустить</Button>
-          </Tooltip>
-        </Button.Group>
-      </CustomFlex>
+            <Button.Group>
+              <Tooltip label="Some">
+                <Button rightIcon={<IconArrowRight size="20px" />}>Запустить</Button>
+              </Tooltip>
+            </Button.Group>
+          </CustomFlex>
+        </>
+      )}
     </Container>
   );
 };
