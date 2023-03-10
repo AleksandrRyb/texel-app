@@ -1,5 +1,6 @@
 import React from 'react';
-import { Title, Container, Text, Box } from '@mantine/core';
+import styled from '@emotion/styled';
+import { Title, Container, Text, Flex } from '@mantine/core';
 import { useForm } from 'react-hook-form';
 import { schemeApi } from '@services/scheme.api';
 
@@ -16,23 +17,31 @@ const FormPage: React.FC = () => {
 
   return (
     <Container>
-      <Title mb={10} order={1}>
+      <Title mb="10px" order={1}>
         {config?.name}
       </Title>
-      <Title mb={15} order={3}>
+      <Title mb="15px" order={3}>
         {config?.title}
       </Title>
-      <Text fz="md">{config?.description}</Text>
+      <Text mb="30px" fz="md">
+        {config?.description}
+      </Text>
 
-      <Box>
-        <form>
+      <CustomFlex align="center" justify="center">
+        <form style={{ width: '60%' }}>
           {config?.parameters.input.map((input) => (
             <DinamicInput key={input.title} input={input} />
           ))}
         </form>
-      </Box>
+      </CustomFlex>
     </Container>
   );
 };
+
+const CustomFlex = styled(Flex)`
+  height: 300px;
+  border: 1px solid white;
+  border-radius: 1%;
+`;
 
 export default FormPage;
