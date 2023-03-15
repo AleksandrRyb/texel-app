@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { Title, Container, Text, Flex, Button, Tooltip, Loader } from '@mantine/core';
 import { useForm } from 'react-hook-form';
 import { IconArrowRight } from '@tabler/icons-react';
@@ -34,8 +33,8 @@ const FormPage: React.FC = () => {
             {config?.description}
           </Text>
 
-          <CustomFlex direction="column" align="center" justify="center">
-            <form style={{ width: '60%' }} onSubmit={handleSubmit(onSubmit)}>
+          <Flex direction="column" align="center" justify="center">
+            <form style={{ width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
               {config?.parameters.input.map((input) => (
                 <>
                   <DinamicInput
@@ -55,17 +54,11 @@ const FormPage: React.FC = () => {
                 </Tooltip>
               </Button.Group>
             </form>
-          </CustomFlex>
+          </Flex>
         </>
       )}
     </Container>
   );
 };
-
-const CustomFlex = styled(Flex)`
-  padding: 20px;
-  border: 1px solid white;
-  border-radius: 1%;
-`;
 
 export default FormPage;
