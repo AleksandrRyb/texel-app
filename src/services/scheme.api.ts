@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { IScheme } from '@models/scheme.model';
+import { IScheme, InputParametr } from '@models/scheme.model';
 
 export const schemeApi = createApi({
   reducerPath: 'schemeReducer',
@@ -8,6 +8,13 @@ export const schemeApi = createApi({
     getConfig: build.query<IScheme, unknown>({
       query: () => ({
         url: '/config',
+      }),
+    }),
+    sendForm: build.mutation<InputParametr, InputParametr>({
+      query: (body) => ({
+        url: '/run',
+        method: 'POST',
+        body,
       }),
     }),
   }),

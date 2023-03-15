@@ -8,6 +8,7 @@ import DinamicInput from '@components/dinamic-input';
 
 const FormPage: React.FC = () => {
   const { data: config, isLoading } = schemeApi.useGetConfigQuery({});
+  const [sendForm, {}] = schemeApi.useSendFormMutation();
 
   const {
     handleSubmit,
@@ -15,7 +16,9 @@ const FormPage: React.FC = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) => {
+    sendForm(data);
+  };
 
   return (
     <Container>
