@@ -15,43 +15,39 @@ interface IDinamicInput {
 const DinamicInput: React.FC<IDinamicInput> = ({ input, control, error }) => {
   return (
     <Stack mb="30px">
-      {input.type === InputTypes.Number ? (
-        <Controller
-          name={input.name}
-          rules={{
-            required: 'Поле не может быть пустым',
-          }}
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <CustomNumberInput
-              min={0}
-              value={value}
-              onChange={onChange}
-              name={input.name}
-              label={input.title}
-              placeholder={input.title}
-            />
-          )}
-        />
-      ) : (
-        <Controller
-          name={input.name}
-          control={control}
-          rules={{
-            required: 'Поле не может быть пустым',
-          }}
-          render={({ field: { onChange, value } }) => (
-            <Select
-              onChange={onChange}
-              value={value}
-              name={input.name}
-              label={input.title}
-              placeholder={input.title}
-              data={input?.items as InputItem[]}
-            />
-          )}
-        />
-      )}
+      <Controller
+        name={input.name}
+        control={control}
+        rules={{
+          required: 'Поле не может быть пустым',
+        }}
+        render={({ field: { onChange, value } }) => {
+          if (input.type === InputTypes.Number) {
+            return (
+              <CustomNumberInput
+                min={0}
+                value={value}
+                onChange={onChange}
+                name={input.name}
+                label={input.title}
+                placeholder={input.title}
+              />
+            );
+          } else {
+            return (
+              <Select
+                onChange={onChange}
+                value={value}
+                name={input.name}
+                label={input.title}
+                placeholder={input.title}
+                data={input?.items as InputItem[]}
+              />
+            );
+          }
+        }}
+      />
+
       {error && (
         <Alert icon={<IconAlertCircle size="1rem" />} title="Input error" color="red">
           {error.message}
