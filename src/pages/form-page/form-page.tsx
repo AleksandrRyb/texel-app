@@ -8,13 +8,17 @@ import { schemeApi } from '@services/scheme.api';
 import DinamicInput from '@components/dinamic-input';
 
 const FormPage: React.FC = () => {
-  const { data: config, error, isLoading } = schemeApi.useGetConfigQuery({});
+  const { data: config, isLoading } = schemeApi.useGetConfigQuery({});
 
   const {
     handleSubmit,
-    register,
+    control,
     formState: { errors },
   } = useForm();
+
+  const onSubmit = (data: any) => console.log(data);
+
+  console.log(errors);
 
   return (
     <Container>
@@ -33,17 +37,26 @@ const FormPage: React.FC = () => {
           </Text>
 
           <CustomFlex direction="column" align="center" justify="center">
-            <form style={{ width: '60%' }}>
+            <form style={{ width: '60%' }} onSubmit={handleSubmit(onSubmit)}>
               {config?.parameters.input.map((input) => (
-                <DinamicInput key={input.title} input={input} />
+                <>
+                  <DinamicInput
+                    error={errors[input.name]}
+                    key={input.name}
+                    input={input}
+                    control={control}
+                  />
+                </>
               ))}
-            </form>
 
-            <Button.Group>
-              <Tooltip label="Some">
-                <Button rightIcon={<IconArrowRight size="20px" />}>Запустить</Button>
-              </Tooltip>
-            </Button.Group>
+              <Button.Group>
+                <Tooltip label="Some">
+                  <Button type="submit" rightIcon={<IconArrowRight size="20px" />}>
+                    Запустить
+                  </Button>
+                </Tooltip>
+              </Button.Group>
+            </form>
           </CustomFlex>
         </>
       )}
@@ -52,7 +65,7 @@ const FormPage: React.FC = () => {
 };
 
 const CustomFlex = styled(Flex)`
-  height: 300px;
+  padding: 20px;
   border: 1px solid white;
   border-radius: 1%;
 `;
