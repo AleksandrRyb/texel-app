@@ -10,7 +10,7 @@ export const schemeApi = createApi({
         url: '/config',
       }),
     }),
-    sendForm: build.mutation<InputParametr, InputParametr>({
+    sendForm: build.mutation<{ message: string }, InputParametr>({
       query: (body) => ({
         url: '/run',
         method: 'POST',
