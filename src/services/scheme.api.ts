@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { IScheme, InputParametr } from '@models/scheme.model';
+import { IScheme, InputParametr } from '../models/scheme.model';
 
 export const schemeApi = createApi({
   reducerPath: 'schemeReducer',

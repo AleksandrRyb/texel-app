@@ -3,8 +3,8 @@ import { Controller } from 'react-hook-form';
 import { Alert, NumberInput, Select, Stack } from '@mantine/core';
 import { IconAlertCircle } from '@tabler/icons-react';
 import styled from '@emotion/styled';
-import { InputTypes } from '@constants/input-constants';
-import { InputItem, InputParametr } from '@models/scheme.model';
+import { InputTypes } from '../../constants/input-constants';
+import { InputItem, InputParametr } from '../../models/scheme.model';
 
 interface IDinamicInput {
   input: InputParametr;

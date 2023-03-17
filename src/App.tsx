@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
-import { setupStore } from '@store/store';
-import { ThemeProvider } from '@hoc/theme-provider';
-import FormPage from '@pages/form-page';
+import { setupStore } from './store/store';
+import { ThemeProvider } from './hoc/theme-provider';
+import FormPage from './pages/form-page';
 import './App.css';
 
 const store = setupStore();
