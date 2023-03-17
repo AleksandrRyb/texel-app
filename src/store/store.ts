@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
-import { schemeApi } from '@services/scheme.api';
+import { schemeApi } from '../services/scheme.api';
 
 const logger = createLogger({
   collapsed: true,
