@@ -1,13 +1,15 @@
 import React from 'react';
-import { Title, Container, Text, Flex, Button, Tooltip, Loader } from '@mantine/core';
+import { Title, Container, Text, Flex, Button, Loader, Notification } from '@mantine/core';
 import { useForm } from 'react-hook-form';
-import { IconArrowRight } from '@tabler/icons-react';
+import { IconArrowRight, IconCheck } from '@tabler/icons-react';
 import { schemeApi } from '@services/scheme.api';
 
 import DinamicInput from '@components/dinamic-input';
 
 const FormPage: React.FC = () => {
   const { data: config, isLoading } = schemeApi.useGetConfigQuery({});
+  const [sendForm, { data: formResponse, isLoading: isMutationLoading }] =
+    schemeApi.useSendFormMutation();
 
   const {
     handleSubmit,
@@ -15,7 +17,9 @@ const FormPage: React.FC = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) => {
+    sendForm(data);
+  };
 
   return (
     <Container>
@@ -46,16 +50,23 @@ const FormPage: React.FC = () => {
                 </>
               ))}
 
-              <Button.Group>
-                <Tooltip label="Some">
-                  <Button type="submit" rightIcon={<IconArrowRight size="20px" />}>
-                    Запустить
-                  </Button>
-                </Tooltip>
-              </Button.Group>
+              <Button
+                loading={isMutationLoading}
+                disabled={isMutationLoading}
+                type="submit"
+                rightIcon={<IconArrowRight size="20px" />}
+                mb="20px"
+              >
+                Запустить
+              </Button>
             </form>
           </Flex>
         </>
+      )}
+      {formResponse && (
+        <Notification icon={<IconCheck size="1.1rem" />} color="teal" title="Teal notification">
+          {formResponse.message}
+        </Notification>
       )}
     </Container>
   );
