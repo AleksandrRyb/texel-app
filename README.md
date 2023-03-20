@@ -1,6 +1,6 @@
 # texel-app
 
-## Приложение сделано с помощью Vite, Mantine, RTK Query и React Hook Form
+Приложение сделано с помощью Vite, Mantine, RTK Query и React Hook Form
 
 ## К прочтению
 
