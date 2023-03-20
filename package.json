@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:local": "docker run -p 3000:3000 texelapp"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
